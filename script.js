@@ -463,16 +463,7 @@ function updateTimers() {
             const hours = Math.floor(remaining / (60 * 60 * 1000));
             const minutes = Math.floor((remaining % (60 * 60 * 1000)) / (60 * 1000));
             timer.textContent = `Süre: ${hours}s ${minutes}dk`;
-            if (warningEl) warningEl.style.display = 'block';
-
-            // ✅ YENİ: Bildirim else içinde AMA sadece buton AKTİF olduğunda
-            const notifiedKey = `${player}TimerNotified`;
-            if (!globalGameState[notifiedKey]) {
-                console.log(`🔔 ${player} için buton aktif oldu, bildirim gönderiliyor...`);
-                sendTimerNotification(player);
-                globalGameState[notifiedKey] = true;
-                saveGlobalGameState();
-            }
+            if (warningEl) warningEl.style.display = 'block';       
         }
     }
 }
