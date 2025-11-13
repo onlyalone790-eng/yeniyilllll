@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yeni Yıl!🎄</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="sync-notification" id="syncNotification">🔄 Veriler senkronize ediliyor...</div>
+
+    <div class="character-selection" id="characterSelection">
+        <h1>🎄Yılbaşı Ağacımıza Hoş Geldin!🎄</h1>
+        <p>Kim olarak süslemek istersinn?</p>
+        <div class="character-buttons">
+            <button class="character-btn kangal-choice" onclick="selectCharacter('kangal')">
+                <div>🐕</div>
+                <div>Kangal</div>
+            </button>
+            <button class="character-btn tavsan-choice" onclick="selectCharacter('tavsan')">
+                <div>🐰</div>
+                <div>Tavşan</div>
+            </button>
+        </div>
+    </div>
+
+    <div class="container" id="mainContent" style="display: none;">
+        <div class="header">
+            <h1>🎄Yılbaşı Ağacımız🎄</h1>
+            <div class="sus-counter">
+                🎁 Süs Sayısı: <span id="ornamentCount">0</span>
+            </div>
+        </div>
+
+        <div id="warning" class="warning" style="display: none;">
+            ⚠️ Dikkat! Süre dolmadan ağacı süslemelisiniz yoksa tüm süsler kaybolacak!
+        </div>
+
+        <div class="tree-wrapper">
+            <div class="tree-container">
+                <div class="star">⭐</div>
+                <div class="tree">
+                    <div class="tree-layer bottom"></div>
+                    <div class="tree-layer middle"></div>
+                    <div class="tree-layer top"></div>
+                </div>
+                <div class="trunk"></div>
+                <div id="ornaments"></div>
+            </div>
+        </div>
+
+        <div class="buttons-container">
+            <button class="player-button kangal" id="kangalBtn">
+                <div>🐕 Kangal</div>
+                <div class="timer" id="kangalTimer">Hazır!</div>
+            </button>
+            <button class="player-button tavsan" id="tavsanBtn">
+                <div>🐰 Tavşan</div>
+                <div class="timer" id="tavsanTimer">Hazır!</div>
+            </button>
+        </div>
+
+        <div class="messages-container">
+            <h2>🎅 Yılbaşı Mesajları 🎅</h2>
+            <p style="text-align: center; margin-bottom: 20px;">
+                Mesajlarınız 1 Ocak 00:00'da açılacak! 🎉
+            </p>
+
+            <div class="message-input-group">
+                <label for="kangalMessage">🐕 Kangal'ın Mesajı:</label>
+                <textarea id="kangalMessage" placeholder="Yılbaşı mesajını buraya yaz..." style="display: none;"></textarea>
+                <div id="kangalSaved" class="message-saved" style="display: none;">
+                    ✅ Mesajın kaydedildi! 1 Ocak'ta açılacak 🎁
+                </div>
+                <button class="save-message-btn" id="kangalSaveBtn" onclick="saveMessage('kangal')">Mesajı Yaz & Kaydet</button>
+            </div>
+
+            <div class="message-input-group">
+                <label for="tavsanMessage">🐰 Tavşan'ın Mesajı:</label>
+                <textarea id="tavsanMessage" placeholder="Yılbaşı mesajını buraya yaz..." style="display: none;"></textarea>
+                <div id="tavsanSaved" class="message-saved" style="display: none;">
+                    ✅ Mesajın kaydedildi! 1 Ocak'ta açılacak 🎁
+                </div>
+                <button class="save-message-btn" id="tavsanSaveBtn" onclick="saveMessage('tavsan')">Mesajı Yaz & Kaydet</button>
+            </div>
+
+            <div class="countdown" id="countdown"></div>
+        </div>
+
+        <div class="messages-container" id="messagesLockedContainer" style="display: block; margin-top: 30px;">
+            <div class="messages-display" style="display: block;">
+                <div class="message-locked">🔒</div>
+                <h3 style="text-align: center; font-size: 1.3em;">Mesajlar 1 Ocak 00:00'da açılacak!</h3>
+            </div>
+        </div>
+
+        <div class="messages-container" id="messagesDisplayContainer" style="display: none; margin-top: 30px;">
+            <div class="messages-display" style="display: block;">
+                <h2 style="text-align: center; margin-bottom: 20px;">🎊 Mutlu Yıllar! 🎊</h2>
+                <div class="message-card">
+                    <h3>🐕 Kangal'dan:</h3>
+                    <p id="displayKangalMessage"></p>
+                </div>
+                <div class="message-card">
+                    <h3>🐰 Tavşan'dan:</h3>
+                    <p id="displayTavsanMessage"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
